@@ -8,24 +8,24 @@ const axios = Axios.create({
 })
 
 export const httpService = {
-  get(endpoint: string, data?: unknown) {
-    return ajax(endpoint, 'GET', data)
+  get<T>(endpoint: string, data?: unknown) {
+    return ajax<T>(endpoint, 'GET', data)
   },
-  post(endpoint: string, data?: unknown) {
-    return ajax(endpoint, 'POST', data)
+  post<T>(endpoint: string, data?: unknown) {
+    return ajax<T>(endpoint, 'POST', data)
   },
-  put(endpoint: string, data?: unknown) {
-    return ajax(endpoint, 'PUT', data)
+  put<T>(endpoint: string, data?: unknown) {
+    return ajax<T>(endpoint, 'PUT', data)
   },
-  delete(endpoint: string, data?: unknown) {
-    return ajax(endpoint, 'DELETE', data)
+  delete<T>(endpoint: string, data?: unknown) {
+    return ajax<T>(endpoint, 'DELETE', data)
   }
 }
 
-async function ajax(endpoint: string, method = 'GET', data: unknown | null = null) {
+async function ajax<T>(endpoint: string, method = 'GET', data: unknown | null = null) {
   console.log('data:', data)
   try {
-    const res = await axios({
+    const res = await axios<T>({
       url: `${BASE_URL}${endpoint}`,
       method,
       data,
@@ -38,6 +38,6 @@ async function ajax(endpoint: string, method = 'GET', data: unknown | null = nul
     //   sessionStorage.clear()
     //   window.location.assign('/')
     // }
-    // throw err
+    throw err
   }
 }
