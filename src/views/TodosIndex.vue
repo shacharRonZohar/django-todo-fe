@@ -1,14 +1,18 @@
 <template>
   <main>
-    <div v-for="todo in todos" :key="todo.id">
-      {{ todo }}
-    </div>
+    <MainLoader v-if="isLoading" />
+    <TodoList v-else-if="todos.length" :todos="todos" />
+    <p v-else>No todos found</p>
   </main>
 </template>
 
 <script setup lang="ts">
 import { useQuery } from 'vue-query'
+
+import MainLoader from '@/components/MainLoader.vue'
+import TodoList from '@/components/TodoList.vue'
+
 import { httpService } from '@/services/http.service'
 
-const { data: todos } = useQuery('todos', () => httpService.get('todos'))
+const { data: todos, isLoading } = useQuery('todos', () => httpService.get('todos'))
 </script>
