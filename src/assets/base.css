@@ -32,7 +32,11 @@
 
   --color-heading: var(--vt-c-text-light-1);
   --color-text: var(--vt-c-text-light-1);
-
+  /* ['PENDING', 'IN_PROGRESS', 'BLOCKED', 'COMPLETED'] */
+  --color-pending: #f0ad4e;
+  --color-in-progress: #5bc0de;
+  --color-blocked: #d9534f;
+  --color-completed: #5cb85c;
   --section-gap: 160px;
 }
 
@@ -60,7 +64,6 @@
 }
 
 body {
-  min-height: 100vh;
   color: var(--color-text);
   background: var(--color-background);
   transition: color 0.5s, background-color 0.5s;

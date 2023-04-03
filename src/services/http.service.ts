@@ -26,7 +26,7 @@ async function ajax<T>(endpoint: string, method = 'GET', data: unknown | null = 
   console.log('data:', data)
   try {
     const res = await axios<T>({
-      url: `${BASE_URL}${endpoint}`,
+      url: `${BASE_URL}${endpoint}/`,
       method,
       data,
       params: method === 'GET' ? data : null

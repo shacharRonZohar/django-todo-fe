@@ -18,7 +18,7 @@ export const SEVERITY_OPTIONS = {
 export type SeverityOptionsKeys = keyof typeof SEVERITY_OPTIONS
 export type SeverityOptions = (typeof SEVERITY_OPTIONS)[SeverityOptionsKeys]
 
-const STATUS_OPTIONS = ['PENDING', 'IN_PROGRESS', 'BLOCKED', 'COMPLETED'] as const
+export const STATUS_OPTIONS = ['PENDING', 'IN_PROGRESS', 'BLOCKED', 'COMPLETED'] as const
 
 export type StatusOptions = (typeof STATUS_OPTIONS)[number]
 
